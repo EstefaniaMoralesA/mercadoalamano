@@ -1,0 +1,534 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5BFEBB061EDF750C005666FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFEBB051EDF750C005666FC /* AppDelegate.swift */; };
+		5BFEBB081EDF750C005666FC /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFEBB071EDF750C005666FC /* FirstViewController.swift */; };
+		5BFEBB0A1EDF750C005666FC /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFEBB091EDF750C005666FC /* SecondViewController.swift */; };
+		5BFEBB0D1EDF750C005666FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BFEBB0B1EDF750C005666FC /* Main.storyboard */; };
+		5BFEBB0F1EDF750C005666FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BFEBB0E1EDF750C005666FC /* Assets.xcassets */; };
+		5BFEBB121EDF750C005666FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BFEBB101EDF750C005666FC /* LaunchScreen.storyboard */; };
+		5BFEBB1D1EDF750C005666FC /* MercadoALaManoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFEBB1C1EDF750C005666FC /* MercadoALaManoTests.swift */; };
+		5BFEBB281EDF750C005666FC /* MercadoALaManoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFEBB271EDF750C005666FC /* MercadoALaManoUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5BFEBB191EDF750C005666FC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5BFEBAFA1EDF750C005666FC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5BFEBB011EDF750C005666FC;
+			remoteInfo = MercadoALaMano;
+		};
+		5BFEBB241EDF750C005666FC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5BFEBAFA1EDF750C005666FC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5BFEBB011EDF750C005666FC;
+			remoteInfo = MercadoALaMano;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5BFEBB021EDF750C005666FC /* MercadoALaMano.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MercadoALaMano.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BFEBB051EDF750C005666FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5BFEBB071EDF750C005666FC /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		5BFEBB091EDF750C005666FC /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		5BFEBB0C1EDF750C005666FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5BFEBB0E1EDF750C005666FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5BFEBB111EDF750C005666FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5BFEBB131EDF750C005666FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5BFEBB181EDF750C005666FC /* MercadoALaManoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MercadoALaManoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BFEBB1C1EDF750C005666FC /* MercadoALaManoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MercadoALaManoTests.swift; sourceTree = "<group>"; };
+		5BFEBB1E1EDF750C005666FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5BFEBB231EDF750C005666FC /* MercadoALaManoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MercadoALaManoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BFEBB271EDF750C005666FC /* MercadoALaManoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MercadoALaManoUITests.swift; sourceTree = "<group>"; };
+		5BFEBB291EDF750C005666FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5BFEBAFF1EDF750C005666FC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5BFEBB151EDF750C005666FC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5BFEBB201EDF750C005666FC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5BFEBAF91EDF750C005666FC = {
+			isa = PBXGroup;
+			children = (
+				5BFEBB041EDF750C005666FC /* MercadoALaMano */,
+				5BFEBB1B1EDF750C005666FC /* MercadoALaManoTests */,
+				5BFEBB261EDF750C005666FC /* MercadoALaManoUITests */,
+				5BFEBB031EDF750C005666FC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5BFEBB031EDF750C005666FC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5BFEBB021EDF750C005666FC /* MercadoALaMano.app */,
+				5BFEBB181EDF750C005666FC /* MercadoALaManoTests.xctest */,
+				5BFEBB231EDF750C005666FC /* MercadoALaManoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5BFEBB041EDF750C005666FC /* MercadoALaMano */ = {
+			isa = PBXGroup;
+			children = (
+				5BFEBB051EDF750C005666FC /* AppDelegate.swift */,
+				5BFEBB071EDF750C005666FC /* FirstViewController.swift */,
+				5BFEBB091EDF750C005666FC /* SecondViewController.swift */,
+				5BFEBB0B1EDF750C005666FC /* Main.storyboard */,
+				5BFEBB0E1EDF750C005666FC /* Assets.xcassets */,
+				5BFEBB101EDF750C005666FC /* LaunchScreen.storyboard */,
+				5BFEBB131EDF750C005666FC /* Info.plist */,
+			);
+			path = MercadoALaMano;
+			sourceTree = "<group>";
+		};
+		5BFEBB1B1EDF750C005666FC /* MercadoALaManoTests */ = {
+			isa = PBXGroup;
+			children = (
+				5BFEBB1C1EDF750C005666FC /* MercadoALaManoTests.swift */,
+				5BFEBB1E1EDF750C005666FC /* Info.plist */,
+			);
+			path = MercadoALaManoTests;
+			sourceTree = "<group>";
+		};
+		5BFEBB261EDF750C005666FC /* MercadoALaManoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				5BFEBB271EDF750C005666FC /* MercadoALaManoUITests.swift */,
+				5BFEBB291EDF750C005666FC /* Info.plist */,
+			);
+			path = MercadoALaManoUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5BFEBB011EDF750C005666FC /* MercadoALaMano */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5BFEBB2C1EDF750C005666FC /* Build configuration list for PBXNativeTarget "MercadoALaMano" */;
+			buildPhases = (
+				5BFEBAFE1EDF750C005666FC /* Sources */,
+				5BFEBAFF1EDF750C005666FC /* Frameworks */,
+				5BFEBB001EDF750C005666FC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MercadoALaMano;
+			productName = MercadoALaMano;
+			productReference = 5BFEBB021EDF750C005666FC /* MercadoALaMano.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5BFEBB171EDF750C005666FC /* MercadoALaManoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5BFEBB2F1EDF750C005666FC /* Build configuration list for PBXNativeTarget "MercadoALaManoTests" */;
+			buildPhases = (
+				5BFEBB141EDF750C005666FC /* Sources */,
+				5BFEBB151EDF750C005666FC /* Frameworks */,
+				5BFEBB161EDF750C005666FC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5BFEBB1A1EDF750C005666FC /* PBXTargetDependency */,
+			);
+			name = MercadoALaManoTests;
+			productName = MercadoALaManoTests;
+			productReference = 5BFEBB181EDF750C005666FC /* MercadoALaManoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		5BFEBB221EDF750C005666FC /* MercadoALaManoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5BFEBB321EDF750C005666FC /* Build configuration list for PBXNativeTarget "MercadoALaManoUITests" */;
+			buildPhases = (
+				5BFEBB1F1EDF750C005666FC /* Sources */,
+				5BFEBB201EDF750C005666FC /* Frameworks */,
+				5BFEBB211EDF750C005666FC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5BFEBB251EDF750C005666FC /* PBXTargetDependency */,
+			);
+			name = MercadoALaManoUITests;
+			productName = MercadoALaManoUITests;
+			productReference = 5BFEBB231EDF750C005666FC /* MercadoALaManoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5BFEBAFA1EDF750C005666FC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = com.gueros;
+				TargetAttributes = {
+					5BFEBB011EDF750C005666FC = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+					};
+					5BFEBB171EDF750C005666FC = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 5BFEBB011EDF750C005666FC;
+					};
+					5BFEBB221EDF750C005666FC = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 5BFEBB011EDF750C005666FC;
+					};
+				};
+			};
+			buildConfigurationList = 5BFEBAFD1EDF750C005666FC /* Build configuration list for PBXProject "MercadoALaMano" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5BFEBAF91EDF750C005666FC;
+			productRefGroup = 5BFEBB031EDF750C005666FC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5BFEBB011EDF750C005666FC /* MercadoALaMano */,
+				5BFEBB171EDF750C005666FC /* MercadoALaManoTests */,
+				5BFEBB221EDF750C005666FC /* MercadoALaManoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5BFEBB001EDF750C005666FC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5BFEBB121EDF750C005666FC /* LaunchScreen.storyboard in Resources */,
+				5BFEBB0F1EDF750C005666FC /* Assets.xcassets in Resources */,
+				5BFEBB0D1EDF750C005666FC /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5BFEBB161EDF750C005666FC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5BFEBB211EDF750C005666FC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5BFEBAFE1EDF750C005666FC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5BFEBB0A1EDF750C005666FC /* SecondViewController.swift in Sources */,
+				5BFEBB061EDF750C005666FC /* AppDelegate.swift in Sources */,
+				5BFEBB081EDF750C005666FC /* FirstViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5BFEBB141EDF750C005666FC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5BFEBB1D1EDF750C005666FC /* MercadoALaManoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5BFEBB1F1EDF750C005666FC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5BFEBB281EDF750C005666FC /* MercadoALaManoUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5BFEBB1A1EDF750C005666FC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5BFEBB011EDF750C005666FC /* MercadoALaMano */;
+			targetProxy = 5BFEBB191EDF750C005666FC /* PBXContainerItemProxy */;
+		};
+		5BFEBB251EDF750C005666FC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5BFEBB011EDF750C005666FC /* MercadoALaMano */;
+			targetProxy = 5BFEBB241EDF750C005666FC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5BFEBB0B1EDF750C005666FC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5BFEBB0C1EDF750C005666FC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		5BFEBB101EDF750C005666FC /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5BFEBB111EDF750C005666FC /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5BFEBB2A1EDF750C005666FC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5BFEBB2B1EDF750C005666FC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5BFEBB2D1EDF750C005666FC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = MercadoALaMano/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gueros.MercadoALaMano;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		5BFEBB2E1EDF750C005666FC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = MercadoALaMano/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gueros.MercadoALaMano;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		5BFEBB301EDF750C005666FC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MercadoALaManoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gueros.MercadoALaManoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MercadoALaMano.app/MercadoALaMano";
+			};
+			name = Debug;
+		};
+		5BFEBB311EDF750C005666FC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MercadoALaManoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gueros.MercadoALaManoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MercadoALaMano.app/MercadoALaMano";
+			};
+			name = Release;
+		};
+		5BFEBB331EDF750C005666FC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = MercadoALaManoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gueros.MercadoALaManoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = MercadoALaMano;
+			};
+			name = Debug;
+		};
+		5BFEBB341EDF750C005666FC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = MercadoALaManoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gueros.MercadoALaManoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = MercadoALaMano;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5BFEBAFD1EDF750C005666FC /* Build configuration list for PBXProject "MercadoALaMano" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5BFEBB2A1EDF750C005666FC /* Debug */,
+				5BFEBB2B1EDF750C005666FC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5BFEBB2C1EDF750C005666FC /* Build configuration list for PBXNativeTarget "MercadoALaMano" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5BFEBB2D1EDF750C005666FC /* Debug */,
+				5BFEBB2E1EDF750C005666FC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		5BFEBB2F1EDF750C005666FC /* Build configuration list for PBXNativeTarget "MercadoALaManoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5BFEBB301EDF750C005666FC /* Debug */,
+				5BFEBB311EDF750C005666FC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		5BFEBB321EDF750C005666FC /* Build configuration list for PBXNativeTarget "MercadoALaManoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5BFEBB331EDF750C005666FC /* Debug */,
+				5BFEBB341EDF750C005666FC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5BFEBAFA1EDF750C005666FC /* Project object */;
+}
