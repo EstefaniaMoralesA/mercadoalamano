@@ -15,6 +15,12 @@
 		5BFEBB121EDF750C005666FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BFEBB101EDF750C005666FC /* LaunchScreen.storyboard */; };
 		5BFEBB1D1EDF750C005666FC /* MercadoALaManoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFEBB1C1EDF750C005666FC /* MercadoALaManoTests.swift */; };
 		5BFEBB281EDF750C005666FC /* MercadoALaManoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFEBB271EDF750C005666FC /* MercadoALaManoUITests.swift */; };
+		5BFEBB361EDF7A71005666FC /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BFEBB351EDF7A71005666FC /* Authentication.storyboard */; };
+		5BFEBB3D1EDF8F5B005666FC /* FAIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFEBB3B1EDF8F5B005666FC /* FAIcon.swift */; };
+		5BFEBB3E1EDF8F5C005666FC /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5BFEBB3C1EDF8F5B005666FC /* FontAwesome.ttf */; };
+		5BFEBB401EDF8FF3005666FC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFEBB3F1EDF8FF3005666FC /* LoginViewController.swift */; };
+		5BFEBB441EDF96B4005666FC /* MercadoALaManoTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFEBB431EDF96B4005666FC /* MercadoALaManoTabViewController.swift */; };
+		5BFEBB461EDFC9B7005666FC /* ForgotPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFEBB451EDFC9B7005666FC /* ForgotPasswordController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +55,12 @@
 		5BFEBB231EDF750C005666FC /* MercadoALaManoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MercadoALaManoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BFEBB271EDF750C005666FC /* MercadoALaManoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MercadoALaManoUITests.swift; sourceTree = "<group>"; };
 		5BFEBB291EDF750C005666FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5BFEBB351EDF7A71005666FC /* Authentication.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Authentication.storyboard; sourceTree = "<group>"; };
+		5BFEBB3B1EDF8F5B005666FC /* FAIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FAIcon.swift; path = Source/FAIcon.swift; sourceTree = "<group>"; };
+		5BFEBB3C1EDF8F5B005666FC /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome.ttf; path = Source/FontAwesome.ttf; sourceTree = "<group>"; };
+		5BFEBB3F1EDF8FF3005666FC /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		5BFEBB431EDF96B4005666FC /* MercadoALaManoTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MercadoALaManoTabViewController.swift; sourceTree = "<group>"; };
+		5BFEBB451EDFC9B7005666FC /* ForgotPasswordController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,10 +91,12 @@
 		5BFEBAF91EDF750C005666FC = {
 			isa = PBXGroup;
 			children = (
+				5BFEBB411EDF8FFB005666FC /* Source Code */,
 				5BFEBB041EDF750C005666FC /* MercadoALaMano */,
 				5BFEBB1B1EDF750C005666FC /* MercadoALaManoTests */,
 				5BFEBB261EDF750C005666FC /* MercadoALaManoUITests */,
 				5BFEBB031EDF750C005666FC /* Products */,
+				5BFEBB3A1EDF8F4F005666FC /* Source */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,10 +113,10 @@
 		5BFEBB041EDF750C005666FC /* MercadoALaMano */ = {
 			isa = PBXGroup;
 			children = (
+				5BFEBB371EDF7AAA005666FC /* Storyboards */,
 				5BFEBB051EDF750C005666FC /* AppDelegate.swift */,
 				5BFEBB071EDF750C005666FC /* FirstViewController.swift */,
 				5BFEBB091EDF750C005666FC /* SecondViewController.swift */,
-				5BFEBB0B1EDF750C005666FC /* Main.storyboard */,
 				5BFEBB0E1EDF750C005666FC /* Assets.xcassets */,
 				5BFEBB101EDF750C005666FC /* LaunchScreen.storyboard */,
 				5BFEBB131EDF750C005666FC /* Info.plist */,
@@ -126,6 +140,42 @@
 				5BFEBB291EDF750C005666FC /* Info.plist */,
 			);
 			path = MercadoALaManoUITests;
+			sourceTree = "<group>";
+		};
+		5BFEBB371EDF7AAA005666FC /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				5BFEBB0B1EDF750C005666FC /* Main.storyboard */,
+				5BFEBB351EDF7A71005666FC /* Authentication.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		5BFEBB3A1EDF8F4F005666FC /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				5BFEBB3B1EDF8F5B005666FC /* FAIcon.swift */,
+				5BFEBB3C1EDF8F5B005666FC /* FontAwesome.ttf */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		5BFEBB411EDF8FFB005666FC /* Source Code */ = {
+			isa = PBXGroup;
+			children = (
+				5BFEBB421EDF9006005666FC /* Login */,
+				5BFEBB431EDF96B4005666FC /* MercadoALaManoTabViewController.swift */,
+			);
+			name = "Source Code";
+			sourceTree = "<group>";
+		};
+		5BFEBB421EDF9006005666FC /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				5BFEBB3F1EDF8FF3005666FC /* LoginViewController.swift */,
+				5BFEBB451EDFC9B7005666FC /* ForgotPasswordController.swift */,
+			);
+			name = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,9 +285,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BFEBB361EDF7A71005666FC /* Authentication.storyboard in Resources */,
 				5BFEBB121EDF750C005666FC /* LaunchScreen.storyboard in Resources */,
 				5BFEBB0F1EDF750C005666FC /* Assets.xcassets in Resources */,
 				5BFEBB0D1EDF750C005666FC /* Main.storyboard in Resources */,
+				5BFEBB3E1EDF8F5C005666FC /* FontAwesome.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,7 +316,11 @@
 			files = (
 				5BFEBB0A1EDF750C005666FC /* SecondViewController.swift in Sources */,
 				5BFEBB061EDF750C005666FC /* AppDelegate.swift in Sources */,
+				5BFEBB441EDF96B4005666FC /* MercadoALaManoTabViewController.swift in Sources */,
+				5BFEBB461EDFC9B7005666FC /* ForgotPasswordController.swift in Sources */,
 				5BFEBB081EDF750C005666FC /* FirstViewController.swift in Sources */,
+				5BFEBB401EDF8FF3005666FC /* LoginViewController.swift in Sources */,
+				5BFEBB3D1EDF8F5B005666FC /* FAIcon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,6 +479,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.gueros.MercadoALaMano;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -435,6 +492,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.gueros.MercadoALaMano;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
