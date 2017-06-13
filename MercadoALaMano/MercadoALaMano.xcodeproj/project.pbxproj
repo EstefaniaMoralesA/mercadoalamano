@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B6229651EEE4E8D0018A698 /* BackgroundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6229641EEE4E8D0018A698 /* BackgroundViewController.swift */; };
 		5BFEBB061EDF750C005666FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFEBB051EDF750C005666FC /* AppDelegate.swift */; };
 		5BFEBB081EDF750C005666FC /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFEBB071EDF750C005666FC /* FirstViewController.swift */; };
 		5BFEBB0A1EDF750C005666FC /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFEBB091EDF750C005666FC /* SecondViewController.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5B6229641EEE4E8D0018A698 /* BackgroundViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundViewController.swift; sourceTree = "<group>"; };
 		5BFEBB021EDF750C005666FC /* MercadoALaMano.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MercadoALaMano.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BFEBB051EDF750C005666FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5BFEBB071EDF750C005666FC /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 			children = (
 				5BFEBB3F1EDF8FF3005666FC /* LoginViewController.swift */,
 				5BFEBB451EDFC9B7005666FC /* ForgotPasswordController.swift */,
+				5B6229641EEE4E8D0018A698 /* BackgroundViewController.swift */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 				TargetAttributes = {
 					5BFEBB011EDF750C005666FC = {
 						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = J286J6TVTA;
 						ProvisioningStyle = Automatic;
 					};
 					5BFEBB171EDF750C005666FC = {
@@ -314,6 +318,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B6229651EEE4E8D0018A698 /* BackgroundViewController.swift in Sources */,
 				5BFEBB0A1EDF750C005666FC /* SecondViewController.swift in Sources */,
 				5BFEBB061EDF750C005666FC /* AppDelegate.swift in Sources */,
 				5BFEBB441EDF96B4005666FC /* MercadoALaManoTabViewController.swift in Sources */,
@@ -474,6 +479,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = J286J6TVTA;
 				INFOPLIST_FILE = MercadoALaMano/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gueros.MercadoALaMano;
@@ -487,6 +493,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = J286J6TVTA;
 				INFOPLIST_FILE = MercadoALaMano/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gueros.MercadoALaMano;
@@ -569,6 +576,7 @@
 				5BFEBB2E1EDF750C005666FC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5BFEBB2F1EDF750C005666FC /* Build configuration list for PBXNativeTarget "MercadoALaManoTests" */ = {
 			isa = XCConfigurationList;
@@ -577,6 +585,7 @@
 				5BFEBB311EDF750C005666FC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5BFEBB321EDF750C005666FC /* Build configuration list for PBXNativeTarget "MercadoALaManoUITests" */ = {
 			isa = XCConfigurationList;
@@ -585,6 +594,7 @@
 				5BFEBB341EDF750C005666FC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
