@@ -1,0 +1,6 @@
+framework module Pods_MercadoALaManoUITests {
+  umbrella header "Pods-MercadoALaManoUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
