@@ -12,6 +12,7 @@ class PageContentViewController: UIViewController {
     
     @IBOutlet weak var background: UIImageView!
     @IBOutlet weak var titulo: UILabel!
+    @IBOutlet weak var control: UIPageControl!
     
     var pageIndex: Int = 0
     var strTitle: String!

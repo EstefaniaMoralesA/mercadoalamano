@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        Chameleon.setGlobalThemeUsingPrimaryColor(UIColor.flatGreenColorDark(), with: UIContentStyle.contrast)
+        Chameleon.setGlobalThemeUsingPrimaryColor(UIColor.init(red: 50.0/255.0, green: 156.0/255.0, blue: 214.0/255.0, alpha: 1.0), with: UIContentStyle.contrast)
         return true
     }
 

@@ -108,6 +108,7 @@ class LoginController: UIViewController
     func customizeBorderlessButton(button:UIButton, string:String)
     {
         button.setTitle(string, for: .normal)
+        button.backgroundColor = UIColor.clear
     }
     
     func customizeDontHaveAccount(label: UILabel, string: String)
