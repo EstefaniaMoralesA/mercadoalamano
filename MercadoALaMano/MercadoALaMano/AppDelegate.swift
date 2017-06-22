@@ -17,6 +17,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         Chameleon.setGlobalThemeUsingPrimaryColor(UIColor.init(red: 50.0/255.0, green: 156.0/255.0, blue: 214.0/255.0, alpha: 1.0), with: UIContentStyle.contrast)
+//        _ = Requests().verificarSesion(1, token: "e28bdcbf-1ec6-4ac1-9615-114142fb5f01" , result: {
+//            (result) in
+//            
+//            if result{
+//                print("@@@@ Sesiooooon: valida");
+//                return
+//            }
+//            
+//            print("@@@@ Sesiooooon: invalida");
+//            return
+//        })
         return true
     }
 

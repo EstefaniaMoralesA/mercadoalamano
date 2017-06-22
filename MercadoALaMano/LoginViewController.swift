@@ -38,7 +38,7 @@ class LoginController: UIViewController
     
     @IBAction func attemptLogin(_ sender: Any) {
         var error = 0
-        var emailText = validateUserName()
+        let emailText = validateUserName()
         if(emailText == nil){
             changeColorLine(textField: username, color: UIColor.red)
             error = 1
@@ -46,7 +46,7 @@ class LoginController: UIViewController
             changeColorLine(textField: username, color: UIColor.white)
         }
             
-        var passwordText = validatePassword()
+        let passwordText = validatePassword()
         if(passwordText == nil){
             changeColorLine(textField: password, color: UIColor.red)
             error = 1
