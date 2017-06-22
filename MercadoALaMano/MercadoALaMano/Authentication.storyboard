@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7J2-mt-KHR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="EVV-5H-liJ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -11,26 +11,62 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Onboard View Controller-->
-        <scene sceneID="2rx-I8-ikE">
+        <!--View Controller-->
+        <scene sceneID="NfC-ns-fhM">
             <objects>
-                <viewController id="7J2-mt-KHR" customClass="OnboardViewController" customModule="MercadoALaMano" customModuleProvider="target" sceneMemberID="viewController">
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="EVV-5H-liJ" customClass="ViewController" customModule="MercadoALaMano" customModuleProvider="target" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="2se-oP-Wsr" kind="show" id="q77-Bi-Isv"/>
+                    </connections>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EcS-Vl-C7O" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1049" y="59"/>
+        </scene>
+        <!--Page Content View Controller-->
+        <scene sceneID="rSB-YK-fk5">
+            <objects>
+                <viewController storyboardIdentifier="PageContentViewController" id="Au6-HX-AJ3" customClass="PageContentViewController" customModule="MercadoALaMano" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="kla-LR-NuW"/>
-                        <viewControllerLayoutGuide type="bottom" id="hUF-Ai-fwc"/>
+                        <viewControllerLayoutGuide type="top" id="Sg4-5a-134"/>
+                        <viewControllerLayoutGuide type="bottom" id="5hH-It-C0m"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="d3x-54-eek">
+                    <view key="view" contentMode="scaleToFill" id="NX2-9M-xu8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RuF-Xu-p1t">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4fZ-WZ-Tai">
+                                <rect key="frame" x="166" y="323" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" hidesForSinglePage="YES" numberOfPages="3" currentPage="2" translatesAutoresizingMaskIntoConstraints="NO" id="CO2-cp-PPF">
+                                <rect key="frame" x="169" y="610" width="39" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </pageControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="4fZ-WZ-Tai" firstAttribute="centerX" secondItem="NX2-9M-xu8" secondAttribute="centerX" id="Byc-9Q-YIK"/>
+                            <constraint firstItem="RuF-Xu-p1t" firstAttribute="centerX" secondItem="NX2-9M-xu8" secondAttribute="centerX" id="VRP-YI-evO"/>
+                            <constraint firstItem="RuF-Xu-p1t" firstAttribute="height" secondItem="NX2-9M-xu8" secondAttribute="height" id="ji5-ZV-SeH"/>
+                            <constraint firstItem="RuF-Xu-p1t" firstAttribute="centerY" secondItem="NX2-9M-xu8" secondAttribute="centerY" id="oFC-QR-GK7"/>
+                            <constraint firstItem="4fZ-WZ-Tai" firstAttribute="centerY" secondItem="NX2-9M-xu8" secondAttribute="centerY" id="v6z-d9-35w"/>
+                            <constraint firstItem="RuF-Xu-p1t" firstAttribute="width" secondItem="NX2-9M-xu8" secondAttribute="width" id="zIt-1t-iMJ"/>
+                        </constraints>
                     </view>
                     <connections>
-                        <segue destination="2se-oP-Wsr" kind="show" identifier="SegueIdentifier" id="c2h-RV-3lC"/>
+                        <outlet property="background" destination="RuF-Xu-p1t" id="u1a-Sa-GQz"/>
+                        <outlet property="titulo" destination="4fZ-WZ-Tai" id="UtT-qC-b0r"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dgg-d2-lVZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qcu-vI-Gun" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1020" y="59"/>
+            <point key="canvasLocation" x="-1050" y="736"/>
         </scene>
         <!--Login Controller-->
         <scene sceneID="NYV-vY-6LS">
