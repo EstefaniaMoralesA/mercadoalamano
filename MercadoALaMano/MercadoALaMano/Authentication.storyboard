@@ -11,26 +11,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
-        <scene sceneID="wkL-c4-S9a">
-            <objects>
-                <navigationController id="O6U-yL-TzW" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="tqt-oC-Eti">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="2se-oP-Wsr" kind="relationship" relationship="rootViewController" id="2Sb-rT-Hcj"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9x5-v2-u5C" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-297" y="114"/>
-        </scene>
-        <!--Background View Controller-->
+        <!--Onboard View Controller-->
         <scene sceneID="2rx-I8-ikE">
             <objects>
-                <viewController id="7J2-mt-KHR" customClass="BackgroundViewController" customModule="MercadoALaMano" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="7J2-mt-KHR" customClass="OnboardViewController" customModule="MercadoALaMano" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kla-LR-NuW"/>
                         <viewControllerLayoutGuide type="bottom" id="hUF-Ai-fwc"/>
@@ -38,26 +22,15 @@
                     <view key="view" contentMode="scaleToFill" id="d3x-54-eek">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bgfinal" translatesAutoresizingMaskIntoConstraints="NO" id="mCR-pq-iz6">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="mCR-pq-iz6" firstAttribute="centerX" secondItem="d3x-54-eek" secondAttribute="centerX" id="EEZ-du-H7X"/>
-                            <constraint firstItem="mCR-pq-iz6" firstAttribute="height" secondItem="d3x-54-eek" secondAttribute="height" id="KDf-N3-eKT"/>
-                            <constraint firstItem="mCR-pq-iz6" firstAttribute="centerY" secondItem="d3x-54-eek" secondAttribute="centerY" id="iWn-YP-aN4"/>
-                            <constraint firstItem="mCR-pq-iz6" firstAttribute="width" secondItem="d3x-54-eek" secondAttribute="width" id="sBr-HG-WO3"/>
-                        </constraints>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
-                        <segue destination="O6U-yL-TzW" kind="presentation" identifier="segueToLogin" modalPresentationStyle="overFullScreen" id="Y38-oN-yuq"/>
+                        <segue destination="2se-oP-Wsr" kind="show" identifier="SegueIdentifier" id="c2h-RV-3lC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dgg-d2-lVZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1153" y="114"/>
+            <point key="canvasLocation" x="-1020" y="59"/>
         </scene>
         <!--Login Controller-->
         <scene sceneID="NYV-vY-6LS">
@@ -160,7 +133,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7mJ-ho-qPr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="558" y="37"/>
+            <point key="canvasLocation" x="-252" y="59"/>
         </scene>
         <!--Forgot Password Controller-->
         <scene sceneID="RsF-Pg-GUe">
@@ -175,7 +148,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¿Olvidaste tu Contraseña?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oBp-ht-Rhl">
-                                <rect key="frame" x="37" y="99" width="300" height="26.5"/>
+                                <rect key="frame" x="37" y="55" width="300" height="26.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -207,11 +180,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kIM-Pk-Nj0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="557.60000000000002" y="875.71214392803608"/>
+            <point key="canvasLocation" x="-252" y="792"/>
         </scene>
     </scenes>
     <resources>
-        <image name="bgfinal" width="960" height="426"/>
         <image name="logoblanco" width="1804" height="944"/>
     </resources>
 </document>

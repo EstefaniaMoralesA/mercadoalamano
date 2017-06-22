@@ -2,13 +2,16 @@ PODS:
   - ChameleonFramework/Default (2.1.0)
   - ChameleonFramework/Swift (2.1.0):
     - ChameleonFramework/Default
+  - Onboard (2.3.1)
 
 DEPENDENCIES:
   - ChameleonFramework/Swift
+  - Onboard
 
 SPEC CHECKSUMS:
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
+  Onboard: b6871f25ac753175b2ab9a362fb2feb26a81a311
 
-PODFILE CHECKSUM: cf67ce93e518535e7675a99bb828736beee9a762
+PODFILE CHECKSUM: e038b543febea2ed1b1464586c40b5b77d6dbb40
 
 COCOAPODS: 1.2.1

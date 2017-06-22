@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		20C275FAEA0ED2033981DF15 /* Pods_MercadoALaManoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4825F72B63AC2EF80CC3840 /* Pods_MercadoALaManoUITests.framework */; };
-		5B6229651EEE4E8D0018A698 /* BackgroundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6229641EEE4E8D0018A698 /* BackgroundViewController.swift */; };
+		5B24CCD41EFA282B002EDB03 /* OnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B24CCD31EFA282B002EDB03 /* OnboardViewController.swift */; };
 		5BFEBB061EDF750C005666FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFEBB051EDF750C005666FC /* AppDelegate.swift */; };
 		5BFEBB081EDF750C005666FC /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFEBB071EDF750C005666FC /* FirstViewController.swift */; };
 		5BFEBB0A1EDF750C005666FC /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFEBB091EDF750C005666FC /* SecondViewController.swift */; };
@@ -48,7 +48,7 @@
 		20BC709F4D7A2A2AD5F3D043 /* Pods_MercadoALaMano.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MercadoALaMano.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DC7F5541388018CF4BAC6C9 /* Pods-MercadoALaManoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MercadoALaManoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MercadoALaManoTests/Pods-MercadoALaManoTests.release.xcconfig"; sourceTree = "<group>"; };
 		54C37D43BA12C3FC3B551B14 /* Pods-MercadoALaManoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MercadoALaManoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MercadoALaManoTests/Pods-MercadoALaManoTests.debug.xcconfig"; sourceTree = "<group>"; };
-		5B6229641EEE4E8D0018A698 /* BackgroundViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundViewController.swift; sourceTree = "<group>"; };
+		5B24CCD31EFA282B002EDB03 /* OnboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardViewController.swift; sourceTree = "<group>"; };
 		5BFEBB021EDF750C005666FC /* MercadoALaMano.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MercadoALaMano.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BFEBB051EDF750C005666FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5BFEBB071EDF750C005666FC /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -203,7 +203,7 @@
 			children = (
 				5BFEBB3F1EDF8FF3005666FC /* LoginViewController.swift */,
 				5BFEBB451EDFC9B7005666FC /* ForgotPasswordController.swift */,
-				5B6229641EEE4E8D0018A698 /* BackgroundViewController.swift */,
+				5B24CCD31EFA282B002EDB03 /* OnboardViewController.swift */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -505,11 +505,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B6229651EEE4E8D0018A698 /* BackgroundViewController.swift in Sources */,
 				5BFEBB0A1EDF750C005666FC /* SecondViewController.swift in Sources */,
 				5BFEBB061EDF750C005666FC /* AppDelegate.swift in Sources */,
 				5BFEBB441EDF96B4005666FC /* MercadoALaManoTabViewController.swift in Sources */,
 				5BFEBB461EDFC9B7005666FC /* ForgotPasswordController.swift in Sources */,
+				5B24CCD41EFA282B002EDB03 /* OnboardViewController.swift in Sources */,
 				5BFEBB081EDF750C005666FC /* FirstViewController.swift in Sources */,
 				5BFEBB401EDF8FF3005666FC /* LoginViewController.swift in Sources */,
 				5BFEBB3D1EDF8F5B005666FC /* FAIcon.swift in Sources */,
@@ -673,7 +673,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.gueros.MercadoALaMano;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -688,7 +688,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.gueros.MercadoALaMano;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
