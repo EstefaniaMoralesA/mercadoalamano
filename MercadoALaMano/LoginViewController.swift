@@ -9,22 +9,26 @@
 
 import UIKit
 
-class LoginController: UIViewController
+class LoginController: UIViewController, UITextFieldDelegate
 {
     
+    @IBOutlet weak var mercadoLogo: UIImageView!
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var forgotPasswordButton: UIButton!
     @IBOutlet weak var dontHaveAccount: UILabel!
     @IBOutlet weak var registerButton: UIButton!
-
-    @IBAction func goToForgotPassword(_ sender: Any) {
-        self.performSegue(withIdentifier: "segueToForgot", sender: nil)
-    }
+    
+    fileprivate weak var gestureRecognizer : UIGestureRecognizer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        username.delegate = self
+        username.returnKeyType = UIReturnKeyType.next;
+        password.delegate = self
+        password.returnKeyType = UIReturnKeyType.go
         
         customizeTextField(textField: username, icon: .FAEnvelopeO, string: "Email")
         customizeTextField(textField: password, icon: .FALock, string:"Contraseña")
@@ -32,8 +36,9 @@ class LoginController: UIViewController
         customizeBorderlessButton(button: forgotPasswordButton, string: "Olvidé mi Contraseña")
         customizeDontHaveAccount(label: dontHaveAccount, string: "¿NO TIENES CUENTA?")
         customizeBorderlessButton(button: registerButton, string: "Regístrate")
+        NotificationCenter.default.addObserver(self, selector: #selector(self.moveViewUp), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         
-        addDoneButton(textField: username)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.moveViewDown), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
     @IBAction func attemptLogin(_ sender: Any) {
@@ -59,16 +64,41 @@ class LoginController: UIViewController
         }
     }
     
-    func addDoneButton(textField: UITextField) {
+    open func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
-        let keypadToolbar: UIToolbar = UIToolbar()
+        if textField == self.username{
+            self.password.becomeFirstResponder()
+        }
+        else{
+            //login(self)
+        }
+        return true
+    }
+    
+    func hideKeyboard(){
+        self.view.endEditing(true)
+    }
+    
+    func moveViewUp(){
         
-        keypadToolbar.items=[
-            UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done, target: textField, action: #selector(UITextField.resignFirstResponder)),
-            UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: self, action: nil)
-        ]
-        keypadToolbar.sizeToFit()
-        textField.inputAccessoryView = keypadToolbar
+        guard self.gestureRecognizer == nil else{
+            return
+        }
+        
+        let gr = UITapGestureRecognizer(target: self, action: #selector(self.hideKeyboard))
+        self.view.addGestureRecognizer(gr)
+        self.gestureRecognizer = gr
+        self.view.frame.origin.y = self.view.frame.origin.y - self.mercadoLogo.frame.origin.y + 40
+    }
+    
+    func moveViewDown(){
+        
+        if let gr = self.gestureRecognizer{
+            self.view.removeGestureRecognizer(gr)
+        }
+        
+        self.view.frame.origin.y = 0
+        self.gestureRecognizer = nil
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -120,10 +150,13 @@ class LoginController: UIViewController
     {
         textField.setLeftViewFAIcon(icon: icon, leftViewMode: .always, textColor: .white, backgroundColor: .clear, size: nil)
         
-        let placeholderAttrs = [ NSForegroundColorAttributeName : UIColor.white]
+        let placeholderAttrs = [ NSForegroundColorAttributeName : UIColor.gray]
         let placeholder = NSAttributedString(string: string, attributes: placeholderAttrs)
         
         textField.attributedPlaceholder = placeholder
+        
+        let screenWidth = UIScreen.main.bounds.width
+        textField.frame.size.width = screenWidth * 0.8
         
         configureTextField(x: 0, y: textField.frame.size.height-1.0, width: textField.frame.size.width, height:1.0, textField: textField, color: UIColor.white)
         
