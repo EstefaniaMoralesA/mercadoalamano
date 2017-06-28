@@ -1,5 +1,5 @@
 //
-//  FirstViewController.swift
+//  WholeProductsListViewController.swift
 //  MercadoALaMano
 //
 //  Created by Estefanía Morales Abud on 31/05/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FirstViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, ProductsCellDelegate {
+class WholeProductsListViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, ProductsCellDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -21,43 +21,19 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
     
+    // Action that saves the current product list into the plist of the user.
+    // Only visible if the user isInAddMode (adding a product)
     @IBAction func saveList(_ sender: Any) {
         menuDictionary.removeObject(forKey: listName)
         menuDictionary.setValue(productList, forKey: listName)
         self.saveListPlist()
         dismiss(animated: true, completion: nil)
     }
+    
+    // Action that only dismiss the current view controller.
     @IBAction func cancelList(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
-    
-    let fruits = "{" +
-        "\"id\": 1," +
-    "\"name\": \"apple\"" +
-    "\"price\": 10," +
-    "\"image\": \"apple\"" +
-    "}," +
-    "{" +
-    "\"id\": 2," +
-    "\"name\": \"banana\"" +
-    "\"price\": 10," +
-    "\"image\": \"banana\"" +
-    "}," +
-    "{" +
-    "\"id\": 3," +
-    "\"name\": \"orange\"" +
-    "\"price\": 10," +
-    "\"image\": \"orange\"" +
-    "}," +
-    "{" +
-    "\"id\": 4," +
-    "\"name\": \"aguacate\"" +
-    "\"price\": 10," +
-    "\"image\": \"aguacate\"" +
-    "}"
-    
-
-//    var dict = [String: Any]()
     
     var images = ["aguacuate", "apple","banana"]
     var productName = ["aguacuate", "apple","banana"]
@@ -66,57 +42,41 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
     var currentImage : String = ""
     var currentName : String = ""
     var currentPrice : Double = 0.0
-
-
-//    func convertToDictionary(text: String) -> [String: Any]? {
-//        if let data = text.data(using: .utf8) {
-//            do {
-//                return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
-//            } catch {
-//                print(error.localizedDescription)
-//            }
-//        }
-//        return nil
-//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         collectionView.delegate = self
         collectionView.dataSource = self
         
+        // If the view comes from MyProductsListViewController then all the save and cancel buttons are going the be shown
         if isInAddMode {
             self.saveButton.isHidden = false
             self.cancelButton.isHidden = false
             self.loadListPlist()
         }
-        
-        // Do any additional setup after loading the view, typically from a nib.
     }
     
 
-    @available(iOS 6.0, *)
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // Images should be changed for the value in the dict
         return images.count
     }
     
     
-    @available(iOS 6.0, *)
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        // Create a custom cell
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomCell", for: indexPath) as! CustomCell
 
         let stringCurrentPrice = NSString(format: "$%.2f", price[indexPath.row]) as String
 
-        
+        // Adding information to the cell
         cell.imageCell.image = UIImage(named: images[indexPath.row])
         cell.nameCell.text = productName[indexPath.row]
         cell.layer.cornerRadius = 10
         cell.layer.masksToBounds = true
-        
         cell.delegate = self
         
+        // If the user is adding a product to their list then the buttons are shown and can be used to edit the cell values
         if isInAddMode {
             cell.priceCell.isHidden = true
             cell.addListButton.isHidden = false
@@ -138,7 +98,7 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
         return cell
     }
 
-    
+    // When the user touches the cell then it is send to the DetailViewController
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
         self.currentImage = images[indexPath.row]
         self.currentName = productName[indexPath.row]
@@ -149,6 +109,7 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
     }
     
     
+    // Pass all the information that the DetailViewController need
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     
         let destinationVC = segue.destination as! DetailViewController
@@ -157,8 +118,10 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
         destinationVC.productName = self.currentName
         destinationVC.price = self.currentPrice
         destinationVC.image = self.currentImage
+        destinationVC.isInAddMode = self.isInAddMode
     }
     
+    // Loads the user configuration
     func loadListPlist() {
         let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true) as NSArray
         let documentsDirectory = paths[0] as! NSString
@@ -180,6 +143,7 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
         
     }
     
+    // Saves the menuDictionary into the plist
     func saveListPlist() {
         let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true) as NSArray
         let documentsDirectory = paths[0] as! NSString
@@ -188,6 +152,7 @@ class FirstViewController: UIViewController, UICollectionViewDelegate, UICollect
         menuDictionary.write(toFile: path, atomically: false)
     }
     
+    // Add the product to the dictionary and returns if it exist or not in the dictionary
     func addToDict(key: String) -> Bool {
         if ((productList.value(forKey: key)) != nil) {
             productList.removeObject(forKey: key)

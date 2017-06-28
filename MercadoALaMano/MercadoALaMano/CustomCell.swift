@@ -12,6 +12,10 @@ protocol ProductsCellDelegate {
     func addToDict(key: String) -> Bool
 }
 
+/* Custom cell for the collection view in the WholeProductsViewController. It implements a protocol
+ that will delegate any functionality into the WholeProductsViewController, here only passes data of the
+ current cell*/
+
 class CustomCell: UICollectionViewCell {
     
     var delegate: ProductsCellDelegate?
@@ -23,10 +27,8 @@ class CustomCell: UICollectionViewCell {
     @IBOutlet weak var nameCell: UILabel!
     @IBOutlet weak var addListButton: UIButton!
     @IBAction func addItemToList(_ sender: Any) {
-//        let list = FirstViewController()
-//        let isInList = list.addToList(key: self.index)
-//
-        
+        // Add the product to the user productList and if it is in the list
+        // it will change the button for a "-" to remove it
         if (delegate != nil) {
             let isInList = delegate?.addToDict(key: index)
             if (isInList)!{

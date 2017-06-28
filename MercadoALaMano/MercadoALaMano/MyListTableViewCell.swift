@@ -8,8 +8,9 @@
 
 import UIKit
 
+// Custom cell for the table with the MyListViewController
+
 class MyListTableViewCell : UITableViewCell {
-    
     @IBOutlet weak var imageArrow: UIImageView!
     @IBOutlet weak var listNameLabel: UILabel!
 }

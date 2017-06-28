@@ -1,5 +1,5 @@
 //
-//  SecondViewController.swift
+//  MyListViewController.swift
 //  MercadoALaMano
 //
 //  Created by Estefanía Morales Abud on 31/05/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MyListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var menuDictionary = NSMutableDictionary()
     var productsList = NSMutableArray()
@@ -16,6 +16,8 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var listName = ""
     
     @IBOutlet weak var myListTableView: UITableView!
+    
+    // This action shows an alert so the user could select the new name of their new list
     @IBAction func addList(_ sender: Any) {
         let alert = UIAlertController(title: "Mis Listas", message: "Crea una nueva lista", preferredStyle: .alert)
         alert.addTextField { textField -> Void in
@@ -25,12 +27,8 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
             (UIAlertAction) in
             if let list = alert.textFields![0].text {
                 self.menuDictionary[list] = NSMutableDictionary()
-//                self.myListTableView.beginUpdates()
-//                self.myListTableView.insertRows(at: [IndexPath.init(row: 0, section: 0)], with: .automatic)
-//                self.myListTableView.endUpdates()
                 self.saveListPlist()
                 self.myListTableView.reloadData()
-
             }
         }))
         
@@ -39,14 +37,8 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.loadListPlist()
-        
-        
-        // Do any additional setup after loading the view, typically from a nib.
-        
         self.navigationItem.title = "Mis Listas"
-        
     }
 
     
@@ -62,27 +54,23 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        // Create a custom cell
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableCell", for: indexPath) as! MyListTableViewCell
-        
         cell.listNameLabel.text = menuDictionary.allKeys[indexPath.row] as? String
-        
         return cell
     }
     
+    // Function that gets the number of the row in the table and pass data to the MyProductsListViewController
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let indexPath = tableView.indexPathForSelectedRow //optional, to get from any UIButton for example
-        
         let currentCell = tableView.cellForRow(at: indexPath!) as! MyListTableViewCell
-        
         listName = currentCell.listNameLabel!.text!
-        
         performSegue(withIdentifier: "listToProducts", sender: self)
     }
     
+    // Pass data to the MyProductsListViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         let destinationVC = segue.destination as! MyProductsListViewController
-        
         destinationVC.listName = self.listName
     }
     
@@ -99,7 +87,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         myListTableView.reloadData()
     }
     
-    
+    // Loads the user configuration
     func loadListPlist() {
         let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true) as NSArray
         let documentsDirectory = paths[0] as! NSString
@@ -121,6 +109,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
     }
     
+    // Saves the menuDictionary into the plist
     func saveListPlist() {
         let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true) as NSArray
         let documentsDirectory = paths[0] as! NSString

@@ -16,35 +16,36 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
     var price : Double = 0.0
     var currentItems = 0
     var total = 0.0
+    var isInAddMode = false
     
+    @IBOutlet weak var removeButton: UIButton!
+    @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var quantityTextField: UITextField!
     @IBOutlet weak var productImage: UIImageView!
     @IBOutlet weak var totalPrice: UILabel!
-    
-
-    @IBOutlet weak var popUpView: UIView!
+    @IBOutlet weak var popUpView: UIView! // View that have all the information of the product
     
     fileprivate weak var gestureRecognizer : UIGestureRecognizer?
-
-    @IBAction func textFieldChanged(_ sender: Any) {
-        currentItems = (quantityTextField.text! as NSString).integerValue
-        getTotalPrice()
-    }
+    
+    // If the text did change then the total price will be calculated again
     func textFieldDidChange(textField: UITextField) {
         getTotalPrice()
     }
-    
+
     @IBAction func closePopUp(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
     
+    // Add 1 to the current quantity and updates the total price
     @IBAction func addItem(_ sender: Any) {
         currentItems += 1
         quantityTextField.text = currentItems.description
         getTotalPrice()
     }
+    
+    // Remove 1 to the current quantity and updates the total price
     @IBAction func removeItem(_ sender: Any) {
         if currentItems > 0 {
             currentItems -= 1
@@ -52,24 +53,32 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
             getTotalPrice()
         }
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
         popUpView.layer.cornerRadius = 10
         popUpView.layer.masksToBounds = true
+        // Add target to catch any change in the textfield
         quantityTextField.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
         
         let stringCurrentPrice = NSString(format: "$%.2f", price) as String
-
-        
         nameLabel.text = productName
         priceLabel.text = stringCurrentPrice
         productImage.image = UIImage(named: image)
-        totalPrice.text = "Total: $" + total.description
         
-        quantityTextField.text = "\(currentItems)"
-        
+        // If the user is adding the product to their list then the option of modifying the quantity will be not displayed
+        if(!isInAddMode){
+            totalPrice.text = "Total: $" + total.description
+            quantityTextField.text = "\(currentItems)"
+        } else {
+            totalPrice.isHidden = true
+            quantityTextField.isHidden = true
+            addButton.isHidden = true
+            removeButton.isHidden = true
+        }
+
+        // Move the view if the keyboard is displayed
         NotificationCenter.default.addObserver(self, selector: #selector(self.moveViewUp), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.moveViewDown), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
@@ -114,15 +123,5 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         total = price * Double(currentItems)
         totalPrice.text = "Total: $" + total.description
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

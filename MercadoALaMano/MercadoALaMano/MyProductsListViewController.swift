@@ -10,6 +10,8 @@ import UIKit
 
 class MyProductsListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ListCellDelegate {
     
+    
+    // Variables for saving the plist information
     var menuDictionary = NSMutableDictionary()
     var productsList = NSMutableDictionary()
     
@@ -22,16 +24,14 @@ class MyProductsListViewController: UIViewController, UITableViewDelegate, UITab
     var price = [8.5,9.0,10.33]
     var currentItems = 0.0
     
-    
-
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var myProductListTable: UITableView!
-    
-
     @IBOutlet weak var editButton: UIBarButtonItem!
     
-
-    
+    /* Actioin that changes the user interaction, in this the user
+       can edit its order, the number of products that want to have 
+       in its list. It changes the button to Save, this updates the plist
+       and reloads the data */
     @IBAction func editList(_ sender: Any) {
         if !isEditingList {
             print(productsList.description)
@@ -53,27 +53,25 @@ class MyProductsListViewController: UIViewController, UITableViewDelegate, UITab
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.loadListPlist()
-        
         self.addButton.isHidden = true
-        
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        
         self.navigationItem.title = listName
+        self.loadProductsList()
+    }
+    
+    // Function that loads the plist of the user, reads the list and return a dictionary with the Key: Id and the Value: quantity
+    func loadProductsList() {
+        self.loadListPlist()
         if ((menuDictionary.value(forKey: listName)) != nil) {
             productsList = menuDictionary.value(forKey: listName) as! NSMutableDictionary
         }
     }
-    
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return productsList.count
     }
@@ -81,23 +79,15 @@ class MyProductsListViewController: UIViewController, UITableViewDelegate, UITab
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        // Creates a custom cell
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableCell", for: indexPath) as! MyProductsTableViewCell
-        
-
         let key = productsList.allKeys[indexPath.row] as? String
-        let index = Int((productsList.allKeys[indexPath.row] as? String)!)
+        let index = Int(key!)
         let stringCurrentPrice = NSString(format: "$%.2f", price[index!]) as String
         var quantity = 0
-//        if wasEdited{
-//            quantity = Int(cell.quantityTextField.text!)!
-//            productsList.setValue(quantity, forKey: key!)
-//            updateDict()
-//            saveListPlist()
-//        } else {
-            quantity = productsList.value(forKey: key!) as! Int
-//        }
         
-        
+        quantity = productsList.value(forKey: key!) as! Int // Gets the value from the current product cell
+        // Asign info to the cell
         cell.delegate = self
         cell.index = key!
         cell.name.text = productName[index!]
@@ -106,7 +96,7 @@ class MyProductsListViewController: UIViewController, UITableViewDelegate, UITab
         cell.quantityTextField.text = "\(quantity)"
         
 
-       
+       // If the user is in editting mode then it shows the necessary buttons to edit the list
         if isEditingList {
             cell.removeButton.isHidden = false
             cell.addButton.isHidden = false
@@ -116,15 +106,10 @@ class MyProductsListViewController: UIViewController, UITableViewDelegate, UITab
             cell.addButton.isHidden = true
             cell.quantityTextField.isUserInteractionEnabled = false
         }
-        
-        
 
         return cell
     }
     
-    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        _ = tableView.cellForRow(at: indexPath) as! MyProductsTableViewCell
-    }
     
     // Function that enables Delete action when the user slides from right to left.
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
@@ -135,11 +120,14 @@ class MyProductsListViewController: UIViewController, UITableViewDelegate, UITab
         }
     }
     
+    // When the view appear will load again the products and the table
     override func viewDidAppear(_ animated: Bool) {
+        self.loadProductsList()
         myProductListTable.reloadData()
     }
     
     
+    // Loads the user configuration
     func loadListPlist() {
         let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true) as NSArray
         let documentsDirectory = paths[0] as! NSString
@@ -161,6 +149,7 @@ class MyProductsListViewController: UIViewController, UITableViewDelegate, UITab
         
     }
     
+    // Saves the menuDictionary into the plist
     func saveListPlist() {
         let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true) as NSArray
         let documentsDirectory = paths[0] as! NSString
@@ -169,23 +158,16 @@ class MyProductsListViewController: UIViewController, UITableViewDelegate, UITab
         menuDictionary.write(toFile: path, atomically: false)
     }
     
+    // Function that updates the whole menuDictionary so it can be saved later
     func updateDict() {
-        // borrar y poner diccionario
-        // remove,
-        var path = ""
-        for (k,v) in productsList {
-            path = listName + "." + (k as! String)
-            menuDictionary.setValue(v, forKeyPath: path)
-        }
+        menuDictionary.removeObject(forKey: listName)
+        menuDictionary.setValue(productsList, forKey: listName)
     }
     
-    func updateProductListWithTextField(v: Any, k: String) {
-        
-    }
-    
+    // Prepares the view to pass the data to the WholeProductsList
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        let destinationVC = segue.destination as! FirstViewController
+        let destinationVC = segue.destination as! WholeProductsListViewController
         
         destinationVC.isInAddMode = true
         destinationVC.listName = self.listName
@@ -193,11 +175,9 @@ class MyProductsListViewController: UIViewController, UITableViewDelegate, UITab
         
     }
     
-    
+    // Add a new value to the current productList dictionary
     func addToDict(key: String, value: Int) {
-        print(productsList.description)
         productsList.setValue(value, forKey: key)
-        print(productsList.description)
     }
 
     

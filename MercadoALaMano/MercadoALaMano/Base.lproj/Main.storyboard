@@ -119,11 +119,13 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addButton" destination="hnq-e7-mxR" id="iuv-3W-HxE"/>
                         <outlet property="nameLabel" destination="MUr-N6-Icl" id="Mt1-ai-X67"/>
                         <outlet property="popUpView" destination="vIM-lT-gRP" id="35M-4l-dUt"/>
                         <outlet property="priceLabel" destination="Es4-vq-ggy" id="0qW-Gw-pES"/>
                         <outlet property="productImage" destination="1rU-9M-EJw" id="LAd-gP-GMI"/>
                         <outlet property="quantityTextField" destination="WqK-Jv-4OU" id="Qz4-qZ-AI2"/>
+                        <outlet property="removeButton" destination="hWV-NJ-qYP" id="i1p-rD-8tC"/>
                         <outlet property="totalPrice" destination="fbv-tf-cdY" id="4Rv-bW-aJ6"/>
                     </connections>
                 </viewController>
@@ -134,7 +136,7 @@
         <!--First-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="FirstViewController" customModule="MercadoALaMano" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9pv-A4-QxB" customClass="WholeProductsListViewController" customModule="MercadoALaMano" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
@@ -223,20 +225,20 @@
                                             <outlet property="imageCell" destination="4pB-xk-VbK" id="xiH-ij-WeV"/>
                                             <outlet property="nameCell" destination="npe-Z8-uTp" id="tuz-OR-5ld"/>
                                             <outlet property="priceCell" destination="KH4-YJ-zuD" id="tuE-pN-gpg"/>
-                                            <segue destination="ec7-Kl-lbq" kind="presentation" id="l0X-eV-ZHb"/>
+                                            <segue destination="ec7-Kl-lbq" kind="presentation" identifier="listToDetail" id="l0X-eV-ZHb"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yng-5W-L4s">
-                                <rect key="frame" x="0.5" y="635.5" width="187.5" height="30"/>
+                                <rect key="frame" x="19.5" y="635.5" width="150" height="30"/>
                                 <state key="normal" title="Cancel"/>
                                 <connections>
                                     <action selector="cancelList:" destination="9pv-A4-QxB" eventType="touchUpInside" id="DBL-kx-D6f"/>
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tsz-VY-W2N">
-                                <rect key="frame" x="187" y="635.5" width="187.5" height="30"/>
+                                <rect key="frame" x="206" y="635.5" width="150" height="30"/>
                                 <state key="normal" title="Save"/>
                                 <connections>
                                     <action selector="saveList:" destination="9pv-A4-QxB" eventType="touchUpInside" id="vFn-eF-Owk"/>
@@ -248,18 +250,18 @@
                             <constraint firstItem="7YX-Ji-AWu" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="L6P-8L-634"/>
                             <constraint firstItem="Tsz-VY-W2N" firstAttribute="centerY" secondItem="tsR-hK-woN" secondAttribute="centerY" multiplier="1.95" id="dU3-H2-N3q"/>
                             <constraint firstAttribute="trailing" secondItem="7YX-Ji-AWu" secondAttribute="trailing" id="jec-fx-1bf"/>
-                            <constraint firstItem="Tsz-VY-W2N" firstAttribute="width" secondItem="tsR-hK-woN" secondAttribute="width" multiplier="0.5" id="jpD-B5-Eyf"/>
+                            <constraint firstItem="Tsz-VY-W2N" firstAttribute="width" secondItem="tsR-hK-woN" secondAttribute="width" multiplier="0.4" id="jpD-B5-Eyf"/>
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="7YX-Ji-AWu" secondAttribute="bottom" id="o00-tz-7WW"/>
                             <constraint firstItem="yng-5W-L4s" firstAttribute="centerY" secondItem="tsR-hK-woN" secondAttribute="centerY" multiplier="1.95" id="oig-pK-Ajh"/>
                             <constraint firstItem="yng-5W-L4s" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" multiplier="0.5" id="qHd-gc-DxH"/>
                             <constraint firstItem="7YX-Ji-AWu" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" id="rn4-8w-BW0"/>
-                            <constraint firstItem="yng-5W-L4s" firstAttribute="width" secondItem="tsR-hK-woN" secondAttribute="width" multiplier="0.5" id="uAR-xt-JSX"/>
+                            <constraint firstItem="yng-5W-L4s" firstAttribute="width" secondItem="tsR-hK-woN" secondAttribute="width" multiplier="0.4" id="uAR-xt-JSX"/>
                             <constraint firstItem="Tsz-VY-W2N" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" multiplier="1.5" id="zw5-in-VKC"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
                     <connections>
-                        <outlet property="cancelButton" destination="yng-5W-L4s" id="L5d-6r-xtX"/>
+                        <outlet property="cancelButton" destination="yng-5W-L4s" id="6La-1d-sO1"/>
                         <outlet property="collectionView" destination="7YX-Ji-AWu" id="B2K-58-5lO"/>
                         <outlet property="saveButton" destination="Tsz-VY-W2N" id="4xf-eH-fca"/>
                     </connections>
@@ -268,10 +270,10 @@
             </objects>
             <point key="canvasLocation" x="749.60000000000002" y="-320.68965517241384"/>
         </scene>
-        <!--Second View Controller-->
+        <!--My List View Controller-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="MercadoALaMano" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8rJ-Kc-sve" customClass="MyListViewController" customModule="MercadoALaMano" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
                         <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
