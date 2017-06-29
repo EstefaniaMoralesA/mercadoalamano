@@ -16,6 +16,8 @@ class Usuario : NSObject, NSCoding{
     var id : Int = 0
     var pushToken: String?
     var session_token: String = ""
+    var tipo: Int = 0;
+    var password: String = ""
     fileprivate(set) var isCurrentUser : Bool = false
     
     
@@ -26,7 +28,7 @@ class Usuario : NSObject, NSCoding{
         aCoder.encode(nombre, forKey: "name")
         aCoder.encode(correo, forKey: "email")
         aCoder.encode(telefono, forKey: "telephone")
-        aCoder.encode(id, forKey: "_id")
+        aCoder.encode(id, forKey: "id")
         aCoder.encode(session_token, forKey: "session_token")
     }
     

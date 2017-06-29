@@ -36,7 +36,7 @@ class Main{
         #endif
         let request: NSMutableURLRequest = NSMutableURLRequest(url: url)
         request.httpMethod = method.rawValue
-        request.timeoutInterval = 8
+        request.timeoutInterval = 20
         return request
     }
     

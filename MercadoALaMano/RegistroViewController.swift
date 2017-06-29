@@ -56,6 +56,62 @@
         if(error == 1) {
             return
         }
+        
+        registro(nameText, email: emailText, phone: phoneNumber, password: passwordText, tipo: 0);
+    }
+    
+    func registro(_ name: String?, email: String?, phone: String?, password: String?, tipo: Int)
+    {
+        let jsonObject: [String: Any] = [
+            "nombre": name!,
+            "apellidos": "",
+            "email": email!,
+            "tipo": tipo,
+            "password": password!,
+            "telefono": phone!
+        ]
+        
+        do {
+            let jsonData = try JSONSerialization.data(withJSONObject: jsonObject, options: .prettyPrinted)
+            
+            if let JSONString = String(data: jsonData, encoding: String.Encoding.utf8) {
+                
+                Requests().registro(JSONString, result: {
+                    (result, mensaje) in
+                
+                    if (result)
+                    {
+                        let alertVC = UIAlertController(title: "Registro Valido!", message: "Gracias por registrarte en Mercado a la Mano", preferredStyle: .alert)
+                        let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+                        alertVC.addAction(okAction)
+                        DispatchQueue.main.async() { () -> Void in
+                            self.present(alertVC, animated: true, completion: nil)
+                        }
+                        return;
+                    }
+                    else{
+                        let alertVC = UIAlertController(title: "Error!", message: mensaje, preferredStyle: .alert)
+                        let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+                        alertVC.addAction(okAction)
+                        DispatchQueue.main.async() { () -> Void in
+                            self.present(alertVC, animated: true, completion: nil)
+                        }
+                    }
+                })
+            }
+            else
+            {
+                print("Error serializando el objeto del registro");
+            }
+            
+        } catch {
+            let alertVC = UIAlertController(title: "Error!", message: "Se produjo un error, vuelva a intentarlo", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+            alertVC.addAction(okAction)
+            DispatchQueue.main.async() { () -> Void in
+                self.present(alertVC, animated: true, completion: nil)
+            }
+        }
     }
     
     fileprivate weak var gestureRecognizer : UIGestureRecognizer?
