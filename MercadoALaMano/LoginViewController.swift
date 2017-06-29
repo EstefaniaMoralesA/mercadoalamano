@@ -8,10 +8,12 @@
 
 
 import UIKit
+import LocalAuthentication
 
 class LoginController: UIViewController, UITextFieldDelegate
 {
     
+    @IBOutlet weak var touchIDbutton: UIButton!
     @IBOutlet weak var mercadoLogo: UIImageView!
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
@@ -19,12 +21,33 @@ class LoginController: UIViewController, UITextFieldDelegate
     @IBOutlet weak var forgotPasswordButton: UIButton!
     @IBOutlet weak var dontHaveAccount: UILabel!
     @IBOutlet weak var registerButton: UIButton!
+    var task : URLSessionTask?
     
     fileprivate weak var gestureRecognizer : UIGestureRecognizer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        load()
         
+        if let _ = UserDefaults.standard.object(forKey: MercadoALaManoNSUserDefaultsKeys.User.rawValue) as? String{
+            
+            let path = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent("userdata")
+            let data = NSKeyedUnarchiver.unarchiveObject(withFile: path)
+            
+            if let data = data as? NSArray{
+                
+                let user = data[0] as! Usuario
+                self.performSegue(withIdentifier: "goHome", sender: user)
+                self.validateSession()
+                
+            }
+            
+        }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.validateSession), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
+    }
+    
+    fileprivate func load() {
         username.delegate = self
         username.returnKeyType = UIReturnKeyType.next;
         password.delegate = self
@@ -33,20 +56,44 @@ class LoginController: UIViewController, UITextFieldDelegate
         customizeTextField(textField: username, icon: .FAEnvelopeO, string: "Email")
         customizeTextField(textField: password, icon: .FALock, string:"Contraseña")
         customizeLoginButton(button: loginButton, string: "INICIAR SESIÓN")
-        customizeBorderlessButton(button: forgotPasswordButton, string: "Olvidé mi Contraseña")
+        customizeBorderlessButton(button: forgotPasswordButton, string: "¿Olvidaste tu contraseña?")
         customizeDontHaveAccount(label: dontHaveAccount, string: "¿NO TIENES CUENTA?")
         customizeBorderlessButton(button: registerButton, string: "Regístrate")
+        customizeBorderlessButton(button: touchIDbutton, string: "O usar touchID")
+        
         NotificationCenter.default.addObserver(self, selector: #selector(self.moveViewUp), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.moveViewDown), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
+    }
+    
+    @IBAction func touchID(_ sender: Any) {
+        let authenticationContext = LAContext()
+        var e: NSError?
+        
+        guard authenticationContext.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &e) else {
+            showAlertWithTitle(title: "Error", message: "This device does not have TouchID sensor.")
+            return
+        }
+        
+        authenticationContext.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "Please let me read your fingerprint...", reply: { [unowned self] (success, error) -> Void in
+            if success {
+                self.performSegue(withIdentifier: "goHome", sender: self)
+            } else {
+                if let error = e {
+                    let message = self.getErrorMessageForCode(errorCode: (error.code))
+                    self.showAlertWithTitle(title: "Error", message: message)
+                }
+            }
+        })
     }
     
     @IBAction func attemptLogin(_ sender: Any) {
-        var error = 0
+        var err = 0
         let emailText = validateUserName()
         if(emailText == nil){
             changeColorLine(textField: username, color: UIColor.red)
-            error = 1
+            err = 1
         }else{
             changeColorLine(textField: username, color: UIColor.white)
         }
@@ -54,14 +101,16 @@ class LoginController: UIViewController, UITextFieldDelegate
         let passwordText = validatePassword()
         if(passwordText == nil){
             changeColorLine(textField: password, color: UIColor.red)
-            error = 1
+            err = 1
         }else{
             changeColorLine(textField: password, color: UIColor.white)
         }
         
-        if(error == 1) {
+        if(err == 1) {
             return
         }
+        
+        self.performSegue(withIdentifier: "goHome", sender: Any?.self)
     }
     
     open func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -73,6 +122,52 @@ class LoginController: UIViewController, UITextFieldDelegate
             //login(self)
         }
         return true
+    }
+    
+    func getErrorMessageForCode(errorCode: Int) -> String {
+        var message = ""
+        switch errorCode {
+        case LAError.appCancel.rawValue:
+            message = "Authentication was cancelled by application"
+            break
+        case LAError.authenticationFailed.rawValue:
+            message = "The user failed to provide valid credentials"
+            break
+        case LAError.invalidContext.rawValue:
+            message = "The context is invalid"
+            break
+        case LAError.passcodeNotSet.rawValue:
+            message = "Passcode is not set on the device"
+            break
+        case LAError.systemCancel.rawValue:
+            message = "Authentication was cancelled by the system"
+            break
+        case LAError.touchIDLockout.rawValue:
+            message = "Too many failed attepts"
+        case LAError.touchIDNotAvailable.rawValue:
+            message = "TouchID is not available on the device"
+            break
+        case LAError.userCancel.rawValue:
+            message = "The user did cancel"
+            break
+        case LAError.userFallback.rawValue:
+            message = "The user chose to use the fallback"
+            break
+        default:
+            message = "Did not find error code on LAError object"
+            break
+        }
+        
+        return message
+    }
+    
+    func showAlertWithTitle(title: String, message: String) {
+        let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alertVC.addAction(okAction)
+        DispatchQueue.main.async() { () -> Void in
+            self.present(alertVC, animated: true, completion: nil)
+        }
     }
     
     func hideKeyboard(){
@@ -101,16 +196,6 @@ class LoginController: UIViewController, UITextFieldDelegate
         self.gestureRecognizer = nil
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let backItem = UIBarButtonItem()
-        backItem.title = ""
-        navigationItem.backBarButtonItem = backItem
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.isTranslucent = true
-        self.navigationController?.view.backgroundColor = UIColor.clear
-    }
-    
     func validateUserName()->String?{
         guard let emailText = username.text, emailText != "" else{
             return nil
@@ -126,7 +211,34 @@ class LoginController: UIViewController, UITextFieldDelegate
         
         return passwordText
     }
-
+    
+    func validateSession(){
+        
+        guard let user = Usuario.currentUser, self.task == nil else{
+            return
+        }
+        
+        
+        self.task = Requests().verifySession(user.id, token: user.session_token , result: {
+            (result) in
+            
+            self.task = nil
+            if result {
+                print("@@@@ Sesiooooon: valida");
+                return
+            }
+            
+            user.logout()
+            self.navigationController?.popToRootViewController(animated: false)
+            self.dismiss(animated: true, completion: {
+                let alert = UIAlertController(title: "Sesión caducada", message: "Sentimos interrumpirte, pero tu sesión ya no es válida 😔\nInicia sesión de nuevo para disfrutar de Freends", preferredStyle: .alert)
+                self.present(alert, animated: true)
+            })
+            
+        } )
+    }
+    
+    
     func customizeLoginButton(button:UIButton, string: String)
     {
          button.layer.borderWidth = 1.5

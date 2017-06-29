@@ -12,6 +12,9 @@
 		2F03312B1EFBA26C0041B18B /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F03312A1EFBA26C0041B18B /* Requests.swift */; };
 		5B24CCDC1EFB99DF002EDB03 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B24CCDB1EFB99DF002EDB03 /* PageViewController.swift */; };
 		5B24CCE11EFCA3D2002EDB03 /* RegistroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B24CCE01EFCA3D2002EDB03 /* RegistroViewController.swift */; };
+		5B4B70FE1F05590B0029EB81 /* Usuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4B70FD1F05590B0029EB81 /* Usuario.swift */; };
+		5B4B71001F055B650029EB81 /* ExtensionFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4B70FF1F055B640029EB81 /* ExtensionFile.swift */; };
+		5B4B71021F055DEF0029EB81 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4B71011F055DEF0029EB81 /* Constants.swift */; };
 		5BFEBB061EDF750C005666FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFEBB051EDF750C005666FC /* AppDelegate.swift */; };
 		5BFEBB081EDF750C005666FC /* WholeProductsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFEBB071EDF750C005666FC /* WholeProductsListViewController.swift */; };
 		5BFEBB0A1EDF750C005666FC /* MyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFEBB091EDF750C005666FC /* MyListViewController.swift */; };
@@ -61,6 +64,9 @@
 		54C37D43BA12C3FC3B551B14 /* Pods-MercadoALaManoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MercadoALaManoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MercadoALaManoTests/Pods-MercadoALaManoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5B24CCDB1EFB99DF002EDB03 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PageViewController.swift; path = MercadoALaMano/PageViewController.swift; sourceTree = "<group>"; };
 		5B24CCE01EFCA3D2002EDB03 /* RegistroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistroViewController.swift; sourceTree = "<group>"; };
+		5B4B70FD1F05590B0029EB81 /* Usuario.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Usuario.swift; sourceTree = "<group>"; };
+		5B4B70FF1F055B640029EB81 /* ExtensionFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionFile.swift; sourceTree = "<group>"; };
+		5B4B71011F055DEF0029EB81 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		5BFEBB021EDF750C005666FC /* MercadoALaMano.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MercadoALaMano.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BFEBB051EDF750C005666FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5BFEBB071EDF750C005666FC /* WholeProductsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WholeProductsListViewController.swift; sourceTree = "<group>"; };
@@ -141,9 +147,22 @@
 			name = Registro;
 			sourceTree = "<group>";
 		};
+		5B4B70FC1F0558DE0029EB81 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				2F03312A1EFBA26C0041B18B /* Requests.swift */,
+				2F0331281EFB9DD60041B18B /* Main.swift */,
+				5B4B70FD1F05590B0029EB81 /* Usuario.swift */,
+				5B4B70FF1F055B640029EB81 /* ExtensionFile.swift */,
+				5B4B71011F055DEF0029EB81 /* Constants.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 		5BFEBAF91EDF750C005666FC = {
 			isa = PBXGroup;
 			children = (
+				5B4B70FC1F0558DE0029EB81 /* Helpers */,
 				F8D965741EFF420F00D19AA0 /* myList.plist */,
 				5BFEBB411EDF8FFB005666FC /* Source Code */,
 				5BFEBB041EDF750C005666FC /* MercadoALaMano */,
@@ -222,8 +241,6 @@
 				5B24CCDF1EFCA3B7002EDB03 /* Registro */,
 				5BFEBB421EDF9006005666FC /* Login */,
 				5BFEBB431EDF96B4005666FC /* MercadoALaManoTabViewController.swift */,
-				2F0331281EFB9DD60041B18B /* Main.swift */,
-				2F03312A1EFBA26C0041B18B /* Requests.swift */,
 			);
 			name = "Source Code";
 			sourceTree = "<group>";
@@ -560,9 +577,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				F81BD7991EFE2B1D00BDF095 /* DetailViewController.swift in Sources */,
+				5B4B71021F055DEF0029EB81 /* Constants.swift in Sources */,
 				2F0331291EFB9DD60041B18B /* Main.swift in Sources */,
 				5BFEBB0A1EDF750C005666FC /* MyListViewController.swift in Sources */,
+				5B4B71001F055B650029EB81 /* ExtensionFile.swift in Sources */,
 				5B24CCDC1EFB99DF002EDB03 /* PageViewController.swift in Sources */,
+				5B4B70FE1F05590B0029EB81 /* Usuario.swift in Sources */,
 				2F03312B1EFBA26C0041B18B /* Requests.swift in Sources */,
 				5BFEBB061EDF750C005666FC /* AppDelegate.swift in Sources */,
 				5BFEBB441EDF96B4005666FC /* MercadoALaManoTabViewController.swift in Sources */,

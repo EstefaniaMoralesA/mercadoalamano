@@ -2,7 +2,7 @@
 //  Requests.swift
 //  MercadoALaMano
 //
-//  Created by Santiago Fernandez Madero on 6/21/17.
+//  Created by Estefania Morales Abud on 6/21/17.
 //  Copyright © 2017 com.gueros. All rights reserved.
 //
 
@@ -11,8 +11,8 @@ import UIKit
 
 class Requests {
     
-    func verificarSesion(_ id: Int, token: String, result:@escaping (Bool)->())->URLSessionTask{
-        
+    func verifySession(_ id: Int, token: String, result:@escaping (Bool)->())->URLSessionTask{
+
         let send = "cliente/verificarSesion/\(id)/\(token)"
         let request = Main.getStandardOnlyTextRequest(send, method: HTTPMethod.POST)
         return Main.performRequest(request as URLRequest) { (data, response, error) in

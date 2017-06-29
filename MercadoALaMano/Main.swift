@@ -2,7 +2,7 @@
 //  Main.swift
 //  MercadoALaMano
 //
-//  Created by Santiago Fernandez Madero on 6/21/17.
+//  Created by Estefania Morales Abud on 6/21/17.
 //  Copyright © 2017 com.gueros. All rights reserved.
 //
 

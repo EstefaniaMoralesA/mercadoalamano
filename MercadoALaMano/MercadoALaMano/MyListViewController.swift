@@ -21,7 +21,7 @@ class MyListViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBAction func addList(_ sender: Any) {
         let alert = UIAlertController(title: "Mis Listas", message: "Crea una nueva lista", preferredStyle: .alert)
         alert.addTextField { textField -> Void in
-            textField.placeholder = "Noombre de la lista"
+            textField.placeholder = "Nombre de la lista"
         }
         alert.addAction(UIAlertAction(title: "Agregar", style: .default, handler: {
             (UIAlertAction) in

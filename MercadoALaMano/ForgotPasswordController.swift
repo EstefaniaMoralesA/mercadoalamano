@@ -11,9 +11,14 @@ import UIKit
 class ForgotPasswordController: UIViewController {
 
     override func viewDidLoad() {
-        super.viewDidLoad()
+        
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.backgroundColor = UIColor.clear
+        self.navigationItem.leftBarButtonItem = self.navigationItem.backBarButtonItem;
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
