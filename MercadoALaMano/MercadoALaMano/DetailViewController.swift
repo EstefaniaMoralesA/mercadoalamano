@@ -34,6 +34,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         getTotalPrice()
     }
 
+    @IBOutlet weak var closeButton: UIButton!
     @IBAction func closePopUp(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
@@ -59,6 +60,8 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
 
         popUpView.layer.cornerRadius = 10
         popUpView.layer.masksToBounds = true
+        popUpView.backgroundColor = UIColor.flatMint()
+        self.closeButton.backgroundColor = UIColor.flatGray()
         // Add target to catch any change in the textfield
         quantityTextField.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
         

@@ -120,6 +120,7 @@
                     </view>
                     <connections>
                         <outlet property="addButton" destination="hnq-e7-mxR" id="iuv-3W-HxE"/>
+                        <outlet property="closeButton" destination="0GA-zo-FHR" id="4EC-EY-wXB"/>
                         <outlet property="nameLabel" destination="MUr-N6-Icl" id="Mt1-ai-X67"/>
                         <outlet property="popUpView" destination="vIM-lT-gRP" id="35M-4l-dUt"/>
                         <outlet property="priceLabel" destination="Es4-vq-ggy" id="0qW-Gw-pES"/>
@@ -290,7 +291,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BQy-Oo-atK" id="HJt-W9-VT1">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rightArrow" translatesAutoresizingMaskIntoConstraints="NO" id="ceb-xH-Ify">

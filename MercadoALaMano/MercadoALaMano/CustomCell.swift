@@ -33,8 +33,10 @@ class CustomCell: UICollectionViewCell {
             let isInList = delegate?.addToDict(key: index)
             if (isInList)!{
                 self.addListButton.setTitle("+", for: .normal)
+                self.addListButton.backgroundColor = UIColor.flatGreen()
             } else {
                 self.addListButton.setTitle("-", for: .normal)
+                self.addListButton.backgroundColor = UIColor.flatRed()
             }
         }
     }
