@@ -81,12 +81,13 @@
                 
                     if (result)
                     {
-                        let alertVC = UIAlertController(title: "Registro Valido!", message: "Gracias por registrarte en Mercado a la Mano", preferredStyle: .alert)
+                        let alertVC = UIAlertController(title: "Error!", message: mensaje, preferredStyle: .alert)
                         let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
                         alertVC.addAction(okAction)
                         DispatchQueue.main.async() { () -> Void in
                             self.present(alertVC, animated: true, completion: nil)
                         }
+
                         return;
                     }
                     else{

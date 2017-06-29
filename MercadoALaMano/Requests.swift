@@ -102,7 +102,42 @@ class Requests {
             }
             
         }
-
-        
+    }
+    
+    func login(_ usuario: String, result:@escaping (Bool, String?, Usuario?)->()){
+        let send = "cliente/login/iPhone"
+        let request = Main.getStandardOnlyTextRequest(send, method: HTTPMethod.POST, httpdata: usuario)
+        Main.getDictionaryForRequest(request) {
+            
+            (dictionary) in
+            
+            if dictionary == nil{
+                result(false, "Error desconocido vuelva a intentarlo", nil)
+            }
+            else{
+                
+                let success = dictionary!["success"] as? Bool
+                
+                if let successUnwrapped = success{
+                    
+                    if !successUnwrapped{
+                        result(false, (dictionary!["mensaje"] as? String)!, nil)
+                        print("\(String(describing: dictionary!["mensaje"]))\n\(#file):\(#line)")
+                        return
+                    }
+                    
+                    result(true, nil, nil)
+                    
+                }
+                else{
+                    
+                    print("Dictionary did not contained success flag\n \(#file):\(#line)")
+                    result(false, "Error desconocido, vuelva a intentarlo", nil)
+                    
+                }
+                
+            }
+            
+        }
     }
 }

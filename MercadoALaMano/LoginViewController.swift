@@ -110,7 +110,56 @@ class LoginController: UIViewController, UITextFieldDelegate
             return
         }
         
-        self.performSegue(withIdentifier: "goHome", sender: Any?.self)
+        loginRequest(email: emailText, password: passwordText)
+        //self.performSegue(withIdentifier: "goHome", sender: Any?.self)
+    }
+    
+    func loginRequest(email: String?, password: String?)
+    {
+        let jsonObject: [String: Any] = [
+            "email": email!,
+            "password": password!
+        ]
+        
+        do {
+            let jsonData = try JSONSerialization.data(withJSONObject: jsonObject, options: .prettyPrinted)
+            
+            if let JSONString = String(data: jsonData, encoding: String.Encoding.utf8) {
+                
+                Requests().login(JSONString, result: {
+                    (result, mensaje, usuario) in
+                    
+                    if (result)
+                    {
+                        DispatchQueue.main.async() { () -> Void in
+                            self.performSegue(withIdentifier: "goHome", sender: Any?.self)
+                        }
+                        return;
+                    }
+                    else{
+                        let alertVC = UIAlertController(title: "Error!", message: mensaje, preferredStyle: .alert)
+                        let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+                        alertVC.addAction(okAction)
+                        DispatchQueue.main.async() { () -> Void in
+                            self.present(alertVC, animated: true, completion: nil)
+                        }
+                    }
+                })
+            }
+            else
+            {
+                print("Error serializando el objeto del login");
+            }
+            
+        } catch {
+            let alertVC = UIAlertController(title: "Error!", message: "Se produjo un error, vuelva a intentarlo", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+            alertVC.addAction(okAction)
+            DispatchQueue.main.async() { () -> Void in
+                self.present(alertVC, animated: true, completion: nil)
+            }
+        }
+
     }
     
     open func textFieldShouldReturn(_ textField: UITextField) -> Bool {
