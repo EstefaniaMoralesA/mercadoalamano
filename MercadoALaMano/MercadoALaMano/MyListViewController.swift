@@ -39,6 +39,7 @@ class MyListViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
         self.loadListPlist()
         self.navigationItem.title = "Mis Listas"
+        self.navigationController?.navigationBar.barTintColor = UIColor.flatRedColorDark()
     }
 
     

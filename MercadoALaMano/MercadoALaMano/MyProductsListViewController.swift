@@ -19,9 +19,9 @@ class MyProductsListViewController: UIViewController, UITableViewDelegate, UITab
     var isEditingList = false
     var wasEdited = false
     
-    var images = ["aguacuate", "apple","banana"]
-    var productName = ["aguacuate", "apple","banana"]
-    var price = [8.5,9.0,10.33]
+    var images = ["aguacuate", "manzana","platano","naranja","sandia"]
+    var productName = ["aguacuate", "manzana","platano","naranja","sandia"]
+    var price = [8.5,9.0,10.33,9.81,23.0]
     var currentItems = 0.0
     
     @IBOutlet weak var addButton: UIButton!
@@ -37,6 +37,7 @@ class MyProductsListViewController: UIViewController, UITableViewDelegate, UITab
             print(productsList.description)
             isEditingList = true
             self.addButton.isHidden = false
+            self.addButton.backgroundColor = UIColor.flatGreen()
             myProductListTable.reloadData()
             editButton.title = "Save"
             wasEdited = true
@@ -76,7 +77,10 @@ class MyProductsListViewController: UIViewController, UITableViewDelegate, UITab
         return productsList.count
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedCell:UITableViewCell = tableView.cellForRow(at: indexPath)!
+        selectedCell.contentView.backgroundColor = UIColor.white
+    }
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         // Creates a custom cell

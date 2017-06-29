@@ -35,9 +35,9 @@ class WholeProductsListViewController: UIViewController, UICollectionViewDelegat
         dismiss(animated: true, completion: nil)
     }
     
-    var images = ["aguacuate", "apple","banana"]
-    var productName = ["aguacuate", "apple","banana"]
-    var price = [8.5,9.0,10.33]
+    var images = ["aguacuate", "manzana","platano","naranja","sandia"]
+    var productName = ["aguacuate", "manzana","platano","naranja","sandia"]
+    var price = [8.5,9.0,10.33,9.81,23.0]
     
     var currentImage : String = ""
     var currentName : String = ""
@@ -52,6 +52,8 @@ class WholeProductsListViewController: UIViewController, UICollectionViewDelegat
         if isInAddMode {
             self.saveButton.isHidden = false
             self.cancelButton.isHidden = false
+            self.cancelButton.backgroundColor = UIColor.flatGray()
+            self.saveButton.backgroundColor = UIColor.flatGreenColorDark()
             self.loadListPlist()
         }
     }
@@ -83,8 +85,11 @@ class WholeProductsListViewController: UIViewController, UICollectionViewDelegat
             let index = "\(indexPath.row)"
             if ((productList.value(forKey: index)) != nil) {
                 cell.addListButton.setTitle("-", for: .normal)
+                cell.addListButton.backgroundColor = UIColor.flatRed()
+                
             } else {
                 cell.addListButton.setTitle("+", for: .normal)
+                cell.addListButton.backgroundColor = UIColor.flatGreen()
             }
 
         } else {
